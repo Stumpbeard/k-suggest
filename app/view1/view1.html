@@ -1,12 +1,9 @@
-<div ng-controller="View1Ctrl as vm" layout="row">
+<div ng-controller="View1Ctrl as vm" layout="column" layout-align="center center" layout-wrap layout-gt-lg="row" layout-align-gt-lg="start center">
     <md-card ng-repeat="artist in vm.ratings">
         <md-card-title layout="row" layout-align="center center">
             <md-card-title-text class="md-title">{{artist.group}}</md-card-title-text>
             <md-button href="{{artist.wiki}}" title="Wikipedia" target="_blank" class="md-icon-button" aria-label="Wikipedia">
                 <i class="material-icons">account_balance</i>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Close">
-                <i class="material-icons">close</i>
             </md-button>
         </md-card-title>
         <img class="artist-splash" ng-src="{{artist.image}}">
