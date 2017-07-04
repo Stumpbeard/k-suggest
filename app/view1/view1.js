@@ -5,6 +5,14 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
 .controller('View1Ctrl', ['$mdPanel', function($mdPanel) {
   var vm = this;
   vm.test = "test";
+  vm.hipHopSlider = 5;
+  vm.modernitySlider = 5;
+
+  vm.checkTracks = function(artist){
+    return artist.tracks.filter(function(track){
+      return (track.hipHop <= vm.hipHopSlider && track.modernity >= vm.modernitySlider);
+    }).length;
+  };
 
   vm.ratings = [
     {
@@ -13,22 +21,22 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
       tracks: [
         {
           name: 'Married To The Music',
-          hipHop: 0.0,
-          modernity: 0.4,
+          hipHop: 0,
+          modernity: 4,
           musicVid: 'https://www.youtube.com/embed/bcu7yZBeSKw',
           lyricVid: 'https://www.youtube.com/embed/wzusorY7Wto'
         },
         {
           name: 'Get The Treasure',
-          hipHop: 0.3,
-          modernity: 0.7,
+          hipHop: 3,
+          modernity: 7,
           musicVid: 'https://www.youtube.com/embed/P4Qyk9IBI2s',
           lyricVid: 'Unavailable'
         },
         {
           name: 'View',
-          hipHop: 0.0,
-          modernity: 1.0,
+          hipHop: 0,
+          modernity: 10,
           musicVid: 'https://www.youtube.com/embed/UF53cptEE5k',
           lyricVid: 'https://www.youtube.com/embed/_-WqVz2ZDik'
         }
@@ -41,22 +49,22 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
       tracks: [
         {
           name: 'Dope',
-          hipHop: 0.8,
-          modernity: 1.0,
+          hipHop: 8,
+          modernity: 10,
           musicVid: 'https://www.youtube.com/embed/BVwAVbKYYeM',
           lyricVid: 'https://www.youtube.com/embed/aE0jGE75SRU'
         },
         {
           name: 'Silver Spoon',
-          hipHop: 1.0,
-          modernity: 1.0,
+          hipHop: 10,
+          modernity: 10,
           musicVid: 'https://www.youtube.com/embed/bPM7uIuB2Gs',
           lyricVid: 'https://www.youtube.com/embed/9qC7HNFRjEY'
         },
         {
           name: 'Blood, Sweat, Tears',
-          hipHop: 0.4,
-          modernity: 1.0,
+          hipHop: 4,
+          modernity: 10,
           musicVid: 'https://www.youtube.com/embed/hmE9f-TEutc',
           lyricVid: 'https://www.youtube.com/embed/YX-k2lk58L0'
         }
@@ -64,32 +72,88 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
       wiki: 'https://en.wikipedia.org/wiki/BTS_(band)'
     },
     {
-      group: 'Big',
-      image: 'http://pm1.narvii.com/5833/eeaa73a30cfeae2305b38a57eb4f114b0999b041_hq.jpg',
+      group: 'Big Bang',
+      image: 'http://bigbangupdates.com/wp-content/uploads/2016/02/frau1.jpeg',
       tracks: [
         {
-          name: 'Dope',
-          hipHop: 0.8,
-          modernity: 1.0,
-          musicVid: 'https://www.youtube.com/embed/BVwAVbKYYeM',
-          lyricVid: 'https://www.youtube.com/embed/aE0jGE75SRU'
+          name: 'FXXK IT',
+          hipHop: 5,
+          modernity: 7,
+          musicVid: 'https://www.youtube.com/embed/iIPH8LFYFRk',
+          lyricVid: 'https://www.youtube.com/embed/nBLIn7PcIH0'
         },
         {
-          name: 'Silver Spoon',
-          hipHop: 1.0,
-          modernity: 1.0,
-          musicVid: 'https://www.youtube.com/embed/bPM7uIuB2Gs',
-          lyricVid: 'https://www.youtube.com/embed/9qC7HNFRjEY'
+          name: 'Lies',
+          hipHop: 6,
+          modernity: 2,
+          musicVid: 'https://www.youtube.com/embed/2Cv3phvP8Ro',
+          lyricVid: 'https://www.youtube.com/embed/Hy0W7AqDC_c'
         },
         {
-          name: 'Blood, Sweat, Tears',
-          hipHop: 0.4,
-          modernity: 1.0,
-          musicVid: 'https://www.youtube.com/embed/hmE9f-TEutc',
-          lyricVid: 'https://www.youtube.com/embed/YX-k2lk58L0'
+          name: 'Fantastic Baby',
+          hipHop: 7,
+          modernity: 6,
+          musicVid: 'https://www.youtube.com/embed/AAbokV76tkU',
+          lyricVid: 'https://www.youtube.com/embed/j1XRCmtwuuU'
         }
       ],
-      wiki: 'https://en.wikipedia.org/wiki/BTS_(band)'
+      wiki: 'https://en.wikipedia.org/wiki/Big_Bang_(South_Korean_band)'
+    },
+    {
+      group: 'Taemin',
+      image: 'http://2.bp.blogspot.com/-6L8xAvK894g/U-5GvGvNwNI/AAAAAAAA8Os/q-5t1p_6T30/s1600/3.png',
+      tracks: [
+        {
+          name: 'Drip Drop',
+          hipHop: 0,
+          modernity: 10,
+          musicVid: 'https://www.youtube.com/embed/Oz3mm3tPKfg',
+          lyricVid: 'https://www.youtube.com/embed/WGRfHGVFN5s'
+        },
+        {
+          name: 'Danger',
+          hipHop: 2,
+          modernity: 10,
+          musicVid: 'https://www.youtube.com/embed/UF8m2JIDjKU',
+          lyricVid: 'https://www.youtube.com/embed/vnisUp6e-_Y'
+        },
+        {
+          name: 'Press Your Number',
+          hipHop: 0,
+          modernity: 7,
+          musicVid: 'https://www.youtube.com/embed/XsOGiTSZ_cg',
+          lyricVid: 'https://www.youtube.com/embed/85B9mjmSmEM'
+        }
+      ],
+      wiki: 'https://en.wikipedia.org/wiki/Lee_Tae-min'
+    },
+    {
+      group: 'NCT 127',
+      image: 'http://smboysgeneration.com/wp-content/uploads/2017/04/NCT-127-Profile-and-Facts.jpg',
+      tracks: [
+        {
+          name: 'Fire Truck',
+          hipHop: 10,
+          modernity: 10,
+          musicVid: 'https://www.youtube.com/embed/_psXn_VJ_AE',
+          lyricVid: 'https://www.youtube.com/embed/cVdmD_J8feY'
+        },
+        {
+          name: 'Limitless',
+          hipHop: 7,
+          modernity: 10,
+          musicVid: 'https://www.youtube.com/embed/RW8iyJcmve4',
+          lyricVid: 'https://www.youtube.com/embed/6KYM1IuGDns'
+        },
+        {
+          name: 'Summer 127',
+          hipHop: 3,
+          modernity: 8,
+          musicVid: 'https://www.youtube.com/embed/bOlaTvuC8U4',
+          lyricVid: 'https://www.youtube.com/embed/fYyiG3vl8cw'
+        }
+      ],
+      wiki: 'https://en.wikipedia.org/wiki/NCT_(band)'
     }
   ];
 

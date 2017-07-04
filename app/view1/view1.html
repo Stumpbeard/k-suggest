@@ -1,25 +1,41 @@
-<div ng-controller="View1Ctrl as vm" layout="column" layout-align="center center" layout-wrap layout-gt-lg="row" layout-align-gt-lg="start center">
-    <md-card ng-repeat="artist in vm.ratings">
-        <md-card-title layout="row" layout-align="center center">
-            <md-card-title-text class="md-title">{{artist.group}}</md-card-title-text>
-            <md-button href="{{artist.wiki}}" title="Wikipedia" target="_blank" class="md-icon-button" aria-label="Wikipedia">
-                <i class="material-icons">account_balance</i>
-            </md-button>
-        </md-card-title>
-        <img class="artist-splash" ng-src="{{artist.image}}">
-        <md-card-content>
-            <div ng-repeat="track in artist.tracks" layout="row" layout-align="space-between center">
-                <p>
-                    {{track.name}}
-                </p>
-                <md-button ng-if="!vm.mobilecheck()" ng-click="vm.showDialog(track)" title="Music Video" class="md-icon-button" aria-label="Music Video">
-                    <i class="material-icons">music_video</i>
+<div ng-controller="View1Ctrl as vm" layout="column">
+    <div layout="row" layout-align="center stretch">
+        <div layout="column" layout-align="space-around start">
+            <span>Hip-hop influence&nbsp;&nbsp;</span>
+            <span>Modernity of sound&nbsp;&nbsp;</span>
+        </div>
+        <div class="selection-slider" layout="column" layout-align="space-around start">
+            <md-slider-container class="selection-slider">
+                <md-slider ng-model="vm.hipHopSlider" min="0" max="10"></md-slider>
+            </md-slider-container>
+            <md-slider-container class="selection-slider">
+                <md-slider ng-model="vm.modernitySlider" min="0" max="10"></md-slider>
+            </md-slider-container>
+        </div>
+    </div>
+    <div layout="column" layout-align="center center" layout-wrap layout-gt-lg="row" layout-align-gt-lg="start start">
+        <md-card ng-repeat="artist in vm.ratings track by $index" class="artist-card" id="artist{{$index}}" ng-if="vm.checkTracks(artist) > 0">
+            <md-card-title layout="row" layout-align="center center">
+                <md-card-title-text class="md-title">{{artist.group}}</md-card-title-text>
+                <md-button href="{{artist.wiki}}" title="Wikipedia" target="_blank" class="md-icon-button" aria-label="Wikipedia">
+                    <i class="material-icons">account_balance</i>
                 </md-button>
-                <md-button ng-if="vm.mobilecheck()" href="{{track.musicVid}}" title="Music Video" class="md-icon-button" aria-label="Music Video">
-                    <i class="material-icons">music_video</i>
-                </md-button>
-            </div>
-        </md-card-content>
-    </md-card>
+            </md-card-title>
+            <img class="artist-splash" ng-src="{{artist.image}}">
+            <md-card-content>
+                <div ng-repeat="track in artist.tracks" layout="row" layout-align="space-between center" ng-if="track.hipHop <= vm.hipHopSlider && track.modernity >= vm.modernitySlider">
+                    <p>
+                        {{track.name}}
+                    </p>
+                    <md-button ng-if="!vm.mobilecheck()" ng-click="vm.showDialog(track)" title="Music Video" class="md-icon-button" aria-label="Music Video">
+                        <i class="material-icons">music_video</i>
+                    </md-button>
+                    <md-button ng-if="vm.mobilecheck()" href="{{track.musicVid}}" title="Music Video" class="md-icon-button" aria-label="Music Video">
+                        <i class="material-icons">music_video</i>
+                    </md-button>
+                </div>
+            </md-card-content>
+        </md-card>
 
+    </div>
 </div>

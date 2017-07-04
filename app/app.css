@@ -28,3 +28,11 @@
   max-height: 250px;
   width: auto;
 }
+
+.selection-slider {
+  width: 50%;
+}
+
+md-slider-container.selection-slider {
+  width: 100%;
+}
