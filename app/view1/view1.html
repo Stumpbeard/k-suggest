@@ -1,8 +1,8 @@
 <div ng-controller="View1Ctrl as vm" layout="column">
     <div layout="row" layout-align="center stretch">
         <div layout="column" layout-align="space-around start">
-            <span>Hip-hop influence&nbsp;&nbsp;</span>
-            <span>Modernity of sound&nbsp;&nbsp;</span>
+            <span>How much hip-hop influence can you stand?&nbsp;&nbsp;</span>
+            <span>How modern does the sound need to be?&nbsp;&nbsp;</span>
         </div>
         <div class="selection-slider" layout="column" layout-align="space-around start">
             <md-slider-container class="selection-slider">
@@ -13,7 +13,7 @@
             </md-slider-container>
         </div>
     </div>
-    <div layout="column" layout-align="center center" layout-wrap layout-gt-lg="row" layout-align-gt-lg="start start">
+    <div layout="column" layout-align="center center" layout-wrap layout-gt-lg="row" layout-align-gt-lg="center start">
         <md-card ng-repeat="artist in vm.ratings track by $index" class="artist-card" id="artist{{$index}}" ng-if="vm.checkTracks(artist) > 0">
             <md-card-title layout="row" layout-align="center center">
                 <md-card-title-text class="md-title">{{artist.group}}</md-card-title-text>

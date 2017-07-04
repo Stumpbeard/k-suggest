@@ -5,8 +5,8 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
 .controller('View1Ctrl', ['$mdPanel', function($mdPanel) {
   var vm = this;
   vm.test = "test";
-  vm.hipHopSlider = 5;
-  vm.modernitySlider = 5;
+  vm.hipHopSlider = 10;
+  vm.modernitySlider = 0;
 
   vm.checkTracks = function(artist){
     return artist.tracks.filter(function(track){
@@ -154,6 +154,34 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
         }
       ],
       wiki: 'https://en.wikipedia.org/wiki/NCT_(band)'
+    },
+    {
+      group: 'EXO',
+      image: 'http://img.kpopmap.com/wp-content/uploads_kpopmap/2017/01/exo-duty-free4.jpg',
+      tracks: [
+        {
+          name: 'Lucky One',
+          hipHop: 1,
+          modernity: 8,
+          musicVid: 'https://www.youtube.com/embed/73QzQYN8FtE',
+          lyricVid: 'https://www.youtube.com/embed/DEgQFr7no8A'
+        },
+        {
+          name: 'Call Me Baby',
+          hipHop: 4,
+          modernity: 5,
+          musicVid: 'https://www.youtube.com/embed/yWfsla_Uh80',
+          lyricVid: 'https://www.youtube.com/embed/YORwzTR97uA'
+        },
+        {
+          name: 'MAMA',
+          hipHop: 2,
+          modernity: 6,
+          musicVid: 'https://www.youtube.com/embed/KH6ZwnqZ7Wo',
+          lyricVid: 'https://www.youtube.com/embed/5f5Kt8KSxI0'
+        }
+      ],
+      wiki: 'https://en.wikipedia.org/wiki/Exo_(band)'
     }
   ];
 
