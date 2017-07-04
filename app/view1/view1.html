@@ -12,7 +12,10 @@
                 <p>
                     {{track.name}}
                 </p>
-                <md-button ng-click="vm.showDialog(track)" title="Music Video" target="_blank" class="md-icon-button" aria-label="Music Video">
+                <md-button ng-if="!vm.mobilecheck()" ng-click="vm.showDialog(track)" title="Music Video" class="md-icon-button" aria-label="Music Video">
+                    <i class="material-icons">music_video</i>
+                </md-button>
+                <md-button ng-if="vm.mobilecheck()" href="{{track.musicVid}}" title="Music Video" class="md-icon-button" aria-label="Music Video">
                     <i class="material-icons">music_video</i>
                 </md-button>
             </div>
